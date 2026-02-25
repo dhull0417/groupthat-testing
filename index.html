@@ -7,28 +7,33 @@
 <title>Privacy Policy - GroupThat</title>
 <style>
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background-color: #f9fafb; }
-.container { background: white; padding: 40px; border-radius: 16px; shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); border: 1px solid #e5e7eb; }
+.container { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); border: 1px solid #e5e7eb; }
 h1 { color: #4F46E5; font-weight: 900; margin-top: 0; }
 h2 { border-bottom: 2px solid #f3f4f6; padding-bottom: 10px; margin-top: 40px; color: #111827; font-weight: 800; }
 ul { padding-left: 20px; }
 li { margin-bottom: 10px; }
 strong { color: #111827; }
 .footer { margin-top: 60px; font-size: 0.9em; color: #6B7280; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
-
-    /* Form Styles */
+ /* Form Styles */
     .deletion-box { margin-top: 50px; padding: 30px; background-color: #fef2f2; border: 1px dashed #f87171; border-radius: 12px; }
     .deletion-box h2 { border: none; margin-top: 0; color: #b91c1c; padding: 0; }
     .input-group { margin-bottom: 15px; }
     label { display: block; font-size: 12px; font-weight: bold; color: #4b5563; text-transform: uppercase; margin-bottom: 5px; }
     input { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-    input:focus { outline: none; border-color: #4F46E5; ring: 2px #c7d2fe; }
-    .submit-btn { width: 100%; background-color: #4F46E5; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+    input:focus { outline: none; border-color: #4F46E5; }
+    .submit-btn { width: 100%; background-color: #4F46E5; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s; margin-top: 10px; }
     .submit-btn:disabled { background-color: #9ca3af; cursor: not-allowed; opacity: 0.6; }
     .submit-btn:hover:not(:disabled) { background-color: #4338ca; }
     .helper-text { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
-</style>    
-    
-    
+    #statusMessage { margin-top: 15px; font-weight: bold; text-align: center; display: none; }
+</style>
+
+</head>
+<body>
+<div class="container">
+<h1>Privacy Policy</h1>
+<p>Last updated: February 25, 2026</p>
+
     <p>This Privacy Policy describes how <strong>GroupThat</strong> ("we", "us", or "our") collects, uses, and shares your personal information when you use our mobile application.</p>
 
     <h2>1. Information We Collect</h2>
@@ -69,27 +74,30 @@ strong { color: #111827; }
         <h2>Request Data Deletion</h2>
         <p class="helper-text">Please provide at least one of the following identifiers to request that your information be deleted.</p>
         
-        <div class="input-group">
-            <label>Full Name</label>
-            <input type="text" id="fullName" placeholder="Enter your full name">
-        </div>
-        
-        <div class="input-group">
-            <label>Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email">
-        </div>
-        
-        <div class="input-group">
-            <label>Username</label>
-            <input type="text" id="username" placeholder="Enter your username">
-        </div>
-        
-        <div class="input-group">
-            <label>User ID</label>
-            <input type="text" id="userId" placeholder="Enter your unique user ID">
-        </div>
+        <form id="deletionForm">
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" name="fullName" id="fullName" placeholder="Enter your full name">
+            </div>
+            
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email">
+            </div>
+            
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+            </div>
+            
+            <div class="input-group">
+                <label>User ID</label>
+                <input type="text" name="userId" id="userId" placeholder="Enter your unique user ID">
+            </div>
 
-        <button id="submitBtn" class="submit-btn" disabled>Submit Deletion Request</button>
+            <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit Deletion Request</button>
+            <div id="statusMessage"></div>
+        </form>
     </div>
 
     <div class="footer">
@@ -98,9 +106,12 @@ strong { color: #111827; }
 </div>
 
 <script>
+    const form = document.getElementById('deletionForm');
     const inputs = ['fullName', 'email', 'username', 'userId'].map(id => document.getElementById(id));
     const submitBtn = document.getElementById('submitBtn');
+    const statusMessage = document.getElementById('statusMessage');
 
+    // Enable button only if at least one field is filled
     function checkInputs() {
         const isAtLeastOneFilled = inputs.some(input => input.value.trim() !== '');
         submitBtn.disabled = !isAtLeastOneFilled;
@@ -110,22 +121,45 @@ strong { color: #111827; }
         input.addEventListener('input', checkInputs);
     });
 
-    submitBtn.addEventListener('click', () => {
-        const data = {
-            name: document.getElementById('fullName').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            user: document.getElementById('username').value.trim(),
-            id: document.getElementById('userId').value.trim()
-        };
-
-        let body = "User would like information deleted.%0D%0A%0D%0ADetails provided:%0D%0A";
-        if (data.name) body += "- Full Name: " + data.name + "%0D%0A";
-        if (data.email) body += "- Email: " + data.email + "%0D%0A";
-        if (data.user) body += "- Username: " + data.user + "%0D%0A";
-        if (data.id) body += "- User ID: " + data.id + "%0D%0A";
-
-        const mailtoLink = "mailto:dallin.hull@outlook.com?subject=Data Deletion Request - GroupThat&body=" + body;
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
         
-        window.location.href = mailtoLink;
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Sending...";
+        statusMessage.style.display = "block";
+        statusMessage.style.color = "#4b5563";
+        statusMessage.innerText = "Processing request...";
+
+        const formData = new FormData(form);
+        formData.append("message", "User would like information deleted");
+
+        try {
+            // Using your Formspree ID: mqaeapww
+            const response = await fetch("https://formspree.io/f/mjgelvry", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                statusMessage.style.color = "#059669";
+                statusMessage.innerText = "Request sent successfully! We will process your deletion shortly.";
+                form.reset();
+                submitBtn.innerText = "Sent!";
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            statusMessage.style.color = "#b91c1c";
+            statusMessage.innerText = "Oops! There was a problem. Please email dallin.hull@outlook.com directly.";
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Submit Deletion Request";
+        }
     });
 </script>
+
+
+</body>
+</html>
