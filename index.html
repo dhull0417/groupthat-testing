@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy - GroupThat</title>
+<title>GroupThat - App & Privacy Policy</title>
 <style>
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background-color: #f9fafb; }
 .container { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); border: 1px solid #e5e7eb; }
@@ -14,6 +14,22 @@ ul { padding-left: 20px; }
 li { margin-bottom: 10px; }
 strong { color: #111827; }
 .footer { margin-top: 60px; font-size: 0.9em; color: #6B7280; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
+ /* Tab Styles */
+    .tabs { overflow: hidden; border-bottom: 1px solid #e5e7eb; margin-bottom: 40px; }
+    .tab-link { background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; font-size: 17px; font-weight: 600; color: #6B7280; border-bottom: 3px solid transparent; margin-bottom: -1px; }
+    .tab-link:hover { color: #111827; }
+    .tab-link.active { color: #4F46E5; border-bottom-color: #4F46E5; }
+    .tab-content { display: none; animation: fadeEffect 0.5s; }
+    @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+
+    /* Download Page Styles */
+    .download-content-wrapper { text-align: center; }
+    .download-content-wrapper p { font-size: 1.1em; color: #4b5563; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .download-buttons { display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 30px; }
+    .download-btn { display: inline-block; text-decoration: none; color: white; font-weight: bold; padding: 15px 30px; border-radius: 12px; font-size: 18px; transition: transform 0.2s ease; min-width: 280px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); text-align: center; }
+    .download-btn:hover { transform: translateY(-2px); }
+    .download-btn.android { background-color: #000000; }
+    .download-btn.apple { background-color: #0071e3; }
  /* Form Styles */
     .deletion-box { margin-top: 50px; padding: 30px; background-color: #fef2f2; border: 1px dashed #f87171; border-radius: 12px; }
     .deletion-box h2 { border: none; margin-top: 0; color: #b91c1c; padding: 0; }
@@ -31,81 +47,113 @@ strong { color: #111827; }
 </head>
 <body>
 <div class="container">
-<h1>Privacy Policy</h1>
-<p>Last updated: February 25, 2026</p>
-
-    <p>This Privacy Policy describes how <strong>GroupThat</strong> ("we", "us", or "our") collects, uses, and shares your personal information when you use our mobile application.</p>
-
-    <h2>1. Information We Collect</h2>
-    <p>To provide a functional group coordination experience, we collect the following:</p>
-    <ul>
-        <li><strong>Account Information:</strong> Name, phone number, email address, and profile picture.</li>
-        <li><strong>Group Data:</strong> Information about groups you create, meetings you schedule, and messages within groups.</li>
-    </ul>
-
-    <h2>2. Device Permissions</h2>
-    <p>Our app requests access to certain device features to function properly:</p>
-    <ul>
-        <li><strong>Camera:</strong> Used to allow you to take a profile picture or share photos within your groups.</li>
-        <li><strong>Photo Library:</strong> Used to let you select an existing photo for your profile or groups.</li>
-        <li><strong>Contacts:</strong> Used to allow you to easily invite friends from your contact list to join your groups. We do not store your contacts on our servers unless you explicitly invite them.</li>
-    </ul>
-
-    <h2>3. How We Use Information</h2>
-    <p>We use the collected data to:</p>
-    <ul>
-        <li>Facilitate group creation and meeting scheduling.</li>
-        <li>Send notifications regarding upcoming meetings.</li>
-        <li>Manage user profiles and authentication.</li>
-    </ul>
-
-    <h2>4. Data Sharing</h2>
-    <p>We do not sell your personal data. We only share information with third-party services necessary for app functionality, such as mongoDB and Clerk for data storage and authentication respectively.</p>
-
-    <h2>5. Your Rights</h2>
-    <p>You may request the deletion of your account and all associated data at any time by contacting us at the email address below.</p>
-
-    <h2>6. Contact Us</h2>
-    <p>If you have questions about this Privacy Policy, please contact us at:</p>
-    <p><strong>dallin.hull@outlook.com</strong></p>
-
-    <!-- DATA DELETION FORM -->
-    <div class="deletion-box">
-        <h2>Request Data Deletion</h2>
-        <p class="helper-text">Please provide at least one of the following identifiers to request that your information be deleted.</p>
-        
-        <form id="deletionForm">
-            <div class="input-group">
-                <label>Full Name</label>
-                <input type="text" name="fullName" id="fullName" placeholder="Enter your full name">
-            </div>
-            
-            <div class="input-group">
-                <label>Email Address</label>
-                <input type="email" name="email" id="email" placeholder="Enter your email">
-            </div>
-            
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" name="username" id="username" placeholder="Enter your username">
-            </div>
-            
-            <div class="input-group">
-                <label>User ID</label>
-                <input type="text" name="userId" id="userId" placeholder="Enter your unique user ID">
-            </div>
-
-            <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit Deletion Request</button>
-            <div id="statusMessage"></div>
-        </form>
+    <div class="tabs">
+        <button class="tab-link active" onclick="openTab(event, 'Download')">Download App</button>
+        <button class="tab-link" onclick="openTab(event, 'Privacy')">Privacy Policy</button>
     </div>
 
-    <div class="footer">
-        &copy; 2026 GroupThat. Built with Expo.
+    <div id="Download" class="tab-content" style="display: block;">
+        <div class="download-content-wrapper">
+            <h1>Join the GroupThat Beta</h1>
+            <p>Get early access and help us shape the future of group coordination. Download the app for your device below to get started.</p>
+            <div class="download-buttons">
+                <a href="https://play.google.com/apps/testing/com.dallinhull.groupthat" target="_blank" rel="noopener noreferrer" class="download-btn android">Get it on Google Play (Beta)</a>
+                <a href="https://testflight.apple.com/join/svHRTYmW" target="_blank" rel="noopener noreferrer" class="download-btn apple">Download on the App Store (TestFlight)</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="Privacy" class="tab-content">
+        <h1>Privacy Policy</h1>
+        <p>Last updated: February 25, 2026</p>
+
+        <p>This Privacy Policy describes how <strong>GroupThat</strong> ("we", "us", or "our") collects, uses, and shares your personal information when you use our mobile application.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>To provide a functional group coordination experience, we collect the following:</p>
+        <ul>
+            <li><strong>Account Information:</strong> Name, phone number, email address, and profile picture.</li>
+            <li><strong>Group Data:</strong> Information about groups you create, meetings you schedule, and messages within groups.</li>
+        </ul>
+
+        <h2>2. Device Permissions</h2>
+        <p>Our app requests access to certain device features to function properly:</p>
+        <ul>
+            <li><strong>Camera:</strong> Used to allow you to take a profile picture or share photos within your groups.</li>
+            <li><strong>Photo Library:</strong> Used to let you select an existing photo for your profile or groups.</li>
+            <li><strong>Contacts:</strong> Used to allow you to easily invite friends from your contact list to join your groups. We do not store your contacts on our servers unless you explicitly invite them.</li>
+        </ul>
+
+        <h2>3. How We Use Information</h2>
+        <p>We use the collected data to:</p>
+        <ul>
+            <li>Facilitate group creation and meeting scheduling.</li>
+            <li>Send notifications regarding upcoming meetings.</li>
+            <li>Manage user profiles and authentication.</li>
+        </ul>
+
+        <h2>4. Data Sharing</h2>
+        <p>We do not sell your personal data. We only share information with third-party services necessary for app functionality, such as mongoDB and Clerk for data storage and authentication respectively.</p>
+
+        <h2>5. Your Rights</h2>
+        <p>You may request the deletion of your account and all associated data at any time by contacting us at the email address below.</p>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy, please contact us at:</p>
+        <p><strong>dallin.hull@outlook.com</strong></p>
+
+        <!-- DATA DELETION FORM -->
+        <div class="deletion-box">
+            <h2>Request Data Deletion</h2>
+            <p class="helper-text">Please provide at least one of the following identifiers to request that your information be deleted.</p>
+            
+            <form id="deletionForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="fullName" id="fullName" placeholder="Enter your full name">
+                </div>
+                
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+                </div>
+                
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username">
+                </div>
+                
+                <div class="input-group">
+                    <label>User ID</label>
+                    <input type="text" name="userId" id="userId" placeholder="Enter your unique user ID">
+                </div>
+
+                <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit Deletion Request</button>
+                <div id="statusMessage"></div>
+            </form>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 GroupThat. Built with Expo.
+        </div>
     </div>
 </div>
 
 <script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
     const form = document.getElementById('deletionForm');
     const inputs = ['fullName', 'email', 'username', 'userId'].map(id => document.getElementById(id));
     const submitBtn = document.getElementById('submitBtn');
