@@ -13,35 +13,54 @@ h2 { border-bottom: 2px solid #f3f4f6; padding-bottom: 10px; margin-top: 40px; c
 ul { padding-left: 20px; }
 li { margin-bottom: 10px; }
 strong { color: #111827; }
+a { color: #4F46E5; }
 .footer { margin-top: 60px; font-size: 0.9em; color: #6B7280; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
- /* Tab Styles */
-    .tabs { overflow: hidden; border-bottom: 1px solid #e5e7eb; margin-bottom: 40px; }
-    .tab-link { background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; font-size: 17px; font-weight: 600; color: #6B7280; border-bottom: 3px solid transparent; margin-bottom: -1px; }
-    .tab-link:hover { color: #111827; }
-    .tab-link.active { color: #4F46E5; border-bottom-color: #4F46E5; }
-    .tab-content { display: none; animation: fadeEffect 0.5s; }
-    @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
 
-    /* Download Page Styles */
-    .download-content-wrapper { text-align: center; }
-    .download-content-wrapper p { font-size: 1.1em; color: #4b5563; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
-    .download-buttons { display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 30px; }
-    .download-btn { display: inline-block; text-decoration: none; color: white; font-weight: bold; padding: 15px 30px; border-radius: 12px; font-size: 18px; transition: transform 0.2s ease; min-width: 280px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); text-align: center; }
-    .download-btn:hover { transform: translateY(-2px); }
-    .download-btn.android { background-color: #000000; }
-    .download-btn.apple { background-color: #0071e3; }
- /* Form Styles */
-    .deletion-box { margin-top: 50px; padding: 30px; background-color: #fef2f2; border: 1px dashed #f87171; border-radius: 12px; }
-    .deletion-box h2 { border: none; margin-top: 0; color: #b91c1c; padding: 0; }
-    .input-group { margin-bottom: 15px; }
-    label { display: block; font-size: 12px; font-weight: bold; color: #4b5563; text-transform: uppercase; margin-bottom: 5px; }
-    input { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-    input:focus { outline: none; border-color: #4F46E5; }
-    .submit-btn { width: 100%; background-color: #4F46E5; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s; margin-top: 10px; }
-    .submit-btn:disabled { background-color: #9ca3af; cursor: not-allowed; opacity: 0.6; }
-    .submit-btn:hover:not(:disabled) { background-color: #4338ca; }
-    .helper-text { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
-    #statusMessage { margin-top: 15px; font-weight: bold; text-align: center; display: none; }
+/* Tab Styles */
+.tabs { overflow: hidden; border-bottom: 1px solid #e5e7eb; margin-bottom: 40px; }
+.tab-link { background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; font-size: 17px; font-weight: 600; color: #6B7280; border-bottom: 3px solid transparent; margin-bottom: -1px; }
+.tab-link:hover { color: #111827; }
+.tab-link.active { color: #4F46E5; border-bottom-color: #4F46E5; }
+.tab-content { display: none; animation: fadeEffect 0.5s; }
+@keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+
+/* Download Page Styles */
+.download-content-wrapper { text-align: center; }
+.download-content-wrapper p { font-size: 1.1em; color: #4b5563; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.download-buttons { display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 30px; }
+.download-btn { display: inline-block; text-decoration: none; color: white; font-weight: bold; padding: 15px 30px; border-radius: 12px; font-size: 18px; transition: transform 0.2s ease; min-width: 280px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); text-align: center; }
+.download-btn:hover { transform: translateY(-2px); }
+.download-btn.android { background-color: #000000; }
+.download-btn.apple { background-color: #0071e3; }
+
+/* Form Styles */
+.deletion-box { margin-top: 50px; padding: 30px; background-color: #fef2f2; border: 1px dashed #f87171; border-radius: 12px; }
+.deletion-box h2 { border: none; margin-top: 0; color: #b91c1c; padding: 0; }
+.input-group { margin-bottom: 15px; }
+label { display: block; font-size: 12px; font-weight: bold; color: #4b5563; text-transform: uppercase; margin-bottom: 5px; }
+input { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+input:focus { outline: none; border-color: #4F46E5; }
+.submit-btn { width: 100%; background-color: #4F46E5; color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s; margin-top: 10px; }
+.submit-btn:disabled { background-color: #9ca3af; cursor: not-allowed; opacity: 0.6; }
+.submit-btn:hover:not(:disabled) { background-color: #4338ca; }
+.helper-text { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
+#statusMessage { margin-top: 15px; font-weight: bold; text-align: center; display: none; }
+
+/* Support Page Styles */
+.support-card { background: #f0f0ff; border: 1px solid #c7d2fe; border-radius: 12px; padding: 24px 28px; margin-bottom: 20px; }
+.support-card h3 { margin: 0 0 8px 0; color: #3730a3; font-size: 1.1em; }
+.support-card p { margin: 0; color: #374151; }
+.support-card a { color: #4F46E5; font-weight: 600; text-decoration: none; }
+.support-card a:hover { text-decoration: underline; }
+.support-highlight { background: #4F46E5; color: white; border-radius: 12px; padding: 28px; text-align: center; margin-bottom: 36px; }
+.support-highlight h2 { color: white; border: none; margin: 0 0 8px 0; padding: 0; font-size: 1.4em; }
+.support-highlight p { color: #c7d2fe; margin: 0 0 16px 0; }
+.support-highlight a { display: inline-block; background: white; color: #4F46E5; font-weight: 700; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 1.05em; transition: transform 0.2s; }
+.support-highlight a:hover { transform: translateY(-2px); }
+.faq-item { border-bottom: 1px solid #f3f4f6; padding: 18px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item strong { display: block; color: #111827; margin-bottom: 6px; }
+.faq-item p { margin: 0; color: #4b5563; }
 </style>
 
 </head>
@@ -49,9 +68,11 @@ strong { color: #111827; }
 <div class="container">
     <div class="tabs">
         <button class="tab-link active" onclick="openTab(event, 'Download')">Download App</button>
+        <button class="tab-link" onclick="openTab(event, 'Support')">Support</button>
         <button class="tab-link" onclick="openTab(event, 'Privacy')">Privacy Policy</button>
     </div>
 
+    <!-- DOWNLOAD TAB -->
     <div id="Download" class="tab-content" style="display: block;">
         <div class="download-content-wrapper">
             <h1>Join the GroupThat Beta!</h1>
@@ -63,6 +84,67 @@ strong { color: #111827; }
         </div>
     </div>
 
+    <!-- SUPPORT TAB -->
+    <div id="Support" class="tab-content">
+        <h1>Support</h1>
+        <p>Need help with GroupThat? We're happy to assist. Browse the common questions below or reach out to us directly.</p>
+
+        <div class="support-highlight">
+            <h2>Contact Us</h2>
+            <p>For questions, bug reports, or feature requests, email us anytime.</p>
+            <a href="mailto:dallin.hull@outlook.com">dallin.hull@outlook.com</a>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <strong>How do I create a group?</strong>
+            <p>After signing in, tap the "+" button on the home screen to create a new group. You can name the group and invite friends directly from your contacts.</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>How do I invite someone to my group?</strong>
+            <p>Open your group, tap the members icon, and select "Invite." You can invite people from your contact list or share an invite link.</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>How do I schedule a meeting?</strong>
+            <p>Inside a group, tap "Schedule Meeting" and pick a date, time, and location. Group members will receive a notification about the upcoming meeting.</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>I found a bug. How do I report it?</strong>
+            <p>Please email us at <a href="mailto:dallin.hull@outlook.com">dallin.hull@outlook.com</a> with a description of the issue, your device model, and the steps to reproduce it. We appreciate your help!</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>How do I delete my account and data?</strong>
+            <p>You can delete your account from within the app on the profile tab, submit a deletion request using the form in the Privacy Policy tab, or email us directly at <a href="mailto:dallin.hull@outlook.com">dallin.hull@outlook.com</a> and we will process your request promptly.</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>Is GroupThat free to use?</strong>
+            <p>Yes! GroupThat is currently free during the beta period. We'll communicate any future changes well in advance.</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>Which platforms is GroupThat available on?</strong>
+            <p>GroupThat is available on both iOS (via TestFlight) and Android (via Google Play beta). See the Download tab to get started.</p>
+        </div>
+
+        <h2>Additional Contact Information</h2>
+        <div class="support-card">
+            <h3>Developer</h3>
+            <p>Dallin Hull<br>
+            Email: <a href="mailto:dallin.hull@outlook.com">dallin.hull@outlook.com</a></p>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 GroupThat. Built with Expo.
+        </div>
+    </div>
+
+    <!-- PRIVACY TAB -->
     <div id="Privacy" class="tab-content">
         <h1>Privacy Policy</h1>
         <p>Last updated: February 25, 2026</p>
@@ -96,7 +178,7 @@ strong { color: #111827; }
         <p>We do not sell your personal data. We only share information with third-party services necessary for app functionality, such as mongoDB and Clerk for data storage and authentication respectively.</p>
 
         <h2>5. Your Rights</h2>
-        <p>You may request the deletion of your account and all associated data at any time by contacting us at the email address below.</p>
+        <p>You may request the deletion of your account and all associated data at any time by contacting us at the email address below or using the form on this page.</p>
 
         <h2>6. Contact Us</h2>
         <p>If you have questions about this Privacy Policy, please contact us at:</p>
@@ -159,7 +241,6 @@ strong { color: #111827; }
     const submitBtn = document.getElementById('submitBtn');
     const statusMessage = document.getElementById('statusMessage');
 
-    // Enable button only if at least one field is filled
     function checkInputs() {
         const isAtLeastOneFilled = inputs.some(input => input.value.trim() !== '');
         submitBtn.disabled = !isAtLeastOneFilled;
@@ -182,7 +263,6 @@ strong { color: #111827; }
         formData.append("message", "User would like information deleted");
 
         try {
-            // Using your Formspree ID: mqaeapww
             const response = await fetch("https://formspree.io/f/mjgelvry", {
                 method: "POST",
                 body: formData,
@@ -207,7 +287,6 @@ strong { color: #111827; }
         }
     });
 </script>
-
 
 </body>
 </html>
